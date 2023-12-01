@@ -50,8 +50,89 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-What the package does (one paragraph).
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="l6pkgdown">L6.Pkgdown<a class="anchor" aria-label="anchor" href="#l6pkgdown"></a>
+</h1></div>
+<p>```{r setup, include=FALSE} # generate the new package environment usethis::create_package(‘L6.Pkgdown’)</p>
+</div>
+<div class="section level1">
+<h1 id="init-the-file">Init the file<a class="anchor" aria-label="anchor" href="#init-the-file"></a>
+</h1>
+<p>usethis::use_git() # init git in the local file usethis::git_sitrep() # check status, (if link to remote website, if token available)</p>
+<pre><code>
+```{r}
+## Link repo in the github website
+# git remote add origin https://github.com/SNGao/L6.pkgdown.git
+# git branch -M main
+# git push -u origin main
+## Use the Github Desk to upload
+
+# Run once to configure package to use pkgdown
+usethis::use_pkgdown() 
+
+# check link condition
+usethis::git_sitrep()</code></pre>
+</div>
+<div class="section level1">
+<h1 id="run-to-build-the-website">Run to build the website<a class="anchor" aria-label="anchor" href="#run-to-build-the-website"></a>
+</h1>
+<p>pkgdown can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code (slight exaggeration). It also helps to deploy the website to GitHub server. Amazingly, pkgdown facilitates automatic updates of the website following any changes made to the package that are pushed to GitHub.</p>
+<pre class="{r}"><code><span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">build_site</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<p>If you’re using GitHub, we also recommend setting up GitHub actions to automatically build and publish your site:</p>
+<pre class="{r}"><code><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github</span><span class="op">(</span><span class="op">)</span> <span class="co"># check if connect to repo already</span></span>
+<span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_pkgdown_github_pages</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<p>(1)自动生成 docs/ 目录：use_pkgdown_github_pages() 将创建一个名为 docs/ 的目录，其中包含构建文档网页所需的所有文件。 (2)修改 .gitignore 文件：函数会更新 .gitignore 文件，以确保 docs/ 目录中的文件不会被 Git跟踪（.gitignore文件是网页信息的存放处，自动更新需要commit文件）。 (3)修改 .gitattributes 文件：函数还会更新 .gitattributes 文件，以确保在 Git 中正确处理二进制文件。 (4)在项目根目录创建 .nojekyll 文件：这个文件的存在告诉 GitHub Pages 不要执行 Jekyll 构建过程，因为 R 包的文档通常是用 pkgdown 构建的，而不是 Jekyll。 (5)将 gh-pages 分支推送到远程仓库：函数会创建一个名为 gh-pages的分支，并将生成的文档网页推送到 GitHub 上。</p>
+<div class="section level4">
+<h4 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
+</h4>
+<p>Please intall your package, and library()</p>
+</div>
+</div>
+<div class="section level1">
+<h1 id="generate-another-branch-to-save-contents-in-docs-file">Generate another branch to save contents in /docs file<a class="anchor" aria-label="anchor" href="#generate-another-branch-to-save-contents-in-docs-file"></a>
+</h1>
+</div>
+<div class="section level1">
+<h1 id="deploy-the-website-from-the-file-content-and-publish-online">deploy the website from the file content and publish online.<a class="anchor" aria-label="anchor" href="#deploy-the-website-from-the-file-content-and-publish-online"></a>
+</h1>
+<pre class="{r}"><code><span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/deploy_to_branch.html" class="external-link">deploy_to_branch</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level1">
+<h1 id="make-website-renewal-based-on-the-code">Make website renewal based on the code<a class="anchor" aria-label="anchor" href="#make-website-renewal-based-on-the-code"></a>
+</h1>
+<pre class="{r}"><code><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github_action</span><span class="op">(</span><span class="st">"pkgdown"</span><span class="op">)</span></span></code></pre>
+<p>Sets up continuous integration (CI) for an R package that is developed on GitHub using GitHub Actions. CI can be used to trigger various operations for each push or pull request, e.g. running R CMD check or building and deploying a pkgdown site.</p>
+</div>
+<div class="section level1">
+<h1 id="how-to-use-build-website-automatically">How to use build website automatically<a class="anchor" aria-label="anchor" href="#how-to-use-build-website-automatically"></a>
+</h1>
+<pre class="{r}"><code><span><span class="co">## Commit files in the master and gh-page branch to the github </span></span>
+<span><span class="co">## the circle on the website is the signal of deploying process</span></span>
+<span><span class="co">## we can click details to find more process information</span></span></code></pre>
+<p>While the pkgdown website provides a comprehensive walkthrough for those who set up their GitHub access If you run into problem when running usethis::use_pkgdown_github_pages() and get stuck, you should try to understand what the function does by reading its manual ?usethis::use_pkgdown_github_pages(). Is it possible to create the necessary gh_pages using pkgdown::deploy_to_branch()? Don’t forget to set up the GitHub Action by calling usethis::use_github_action(“pkgdown”). Now you should be able to find access your website via github_account_name.github.io/pkg_name</p>
+<div class="section level2">
+<h2 id="configure-git-with-rstudio">Configure git with Rstudio<a class="anchor" aria-label="anchor" href="#configure-git-with-rstudio"></a>
+</h2>
+<pre class="{r}"><code><span><span class="co">## set your user name and email:</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git_config</span><span class="op">(</span>user.name <span class="op">=</span> <span class="st">"YourName"</span>, user.email <span class="op">=</span> <span class="st">"your@mail.com"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## create a personal access token for authentication:</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_github_token</span><span class="op">(</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="co">## set personal access token:</span></span>
+<span><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="st">"YourPAT"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## or store it manually in '.Renviron': (preferred)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">edit_r_environ</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+<div class="section level1">
+<h1 id="some-references">Some references<a class="anchor" aria-label="anchor" href="#some-references"></a>
+</h1>
+<p>Configure git with Rstudio: <a href="https://gist.github.com/Z3tt/3dab3535007acf108391649766409421" class="external-link uri">https://gist.github.com/Z3tt/3dab3535007acf108391649766409421</a> Git Guides: <a href="https://happygitwithr.com/https-pat" class="external-link uri">https://happygitwithr.com/https-pat</a></p>
+</div>
+
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
