@@ -1,2 +1,6 @@
 ^L6\.Pkgdown\.Rproj$
 ^\.Rproj\.user$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
