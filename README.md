@@ -102,5 +102,7 @@ Configure git with Rstudio: https://gist.github.com/Z3tt/3dab3535007acf108391649
 
 Git Guides: https://happygitwithr.com/https-pat
 
+777-Computing(Lecture-6): https://www.stephaniehicks.com/jhustatprogramming2023/posts/2023-11-30-pkgdown-pkg-website/ 
+
 
 
