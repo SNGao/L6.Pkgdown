@@ -1,7 +1,10 @@
 # L6.Pkgdown
 
+```r
+install.packages(c("usethis", "pkgdown"))
+```
 
-```{r setup, include=FALSE}
+```r
 # generate the new package environment
 usethis::create_package('L6.Pkgdown')
 
@@ -10,7 +13,7 @@ usethis::use_git() # init git in the local file
 usethis::git_sitrep() # check status, (if link to remote website, if token available)
 ```
 
-```{r}
+```r
 ## Link repo in the github website
 # git remote add origin https://github.com/SNGao/L6.pkgdown.git
 # git branch -M main
@@ -28,13 +31,13 @@ usethis::git_sitrep()
 
 pkgdown can automatically generate a website of an R package, containing references to the enclosed function, different vignettes if exists, within two lines of code (slight exaggeration). It also helps to deploy the website to GitHub server. Amazingly, pkgdown facilitates automatic updates of the website following any changes made to the package that are pushed to GitHub.
 
-```{r}
+```r
 pkgdown::build_site()
 ```
 
 If you're using GitHub, we also recommend setting up GitHub actions to automatically build and publish your site:
 
-```{r}
+```r
 usethis::use_github() # check if connect to repo already
 
 usethis::use_pkgdown_github_pages()
@@ -46,23 +49,24 @@ usethis::use_pkgdown_github_pages()
 (4)在项目根目录创建 .nojekyll 文件：这个文件的存在告诉 GitHub Pages 不要执行 Jekyll 构建过程，因为 R 包的文档通常是用 pkgdown 构建的，而不是 Jekyll。
 (5)将 gh-pages 分支推送到远程仓库：函数会创建一个名为 gh-pages的分支，并将生成的文档网页推送到 GitHub 上。
 
-#### Install
+# Install
 Please intall your package, and library()
 
-# Generate another branch to save contents in /docs file
-# deploy the website from the file content and publish online.
-```{r}
+# deploy to gh-page branch
+Generate another branch to save contents in /docs file
+deploy the website from the file content and publish online.
+```r
 pkgdown::deploy_to_branch()
 ```
 
 # Make website renewal based on the code
-```{r}
+```r
 usethis::use_github_action("pkgdown")
 ```
 Sets up continuous integration (CI) for an R package that is developed on GitHub using GitHub Actions. CI can be used to trigger various operations for each push or pull request, e.g. running R CMD check or building and deploying a pkgdown site.
 
 # How to use build website automatically
-```{r}
+```r
 ## Commit files in the master and gh-page branch to the github 
 ## the circle on the website is the signal of deploying process
 ## we can click details to find more process information
@@ -75,7 +79,7 @@ Is it possible to create the necessary gh_pages using pkgdown::deploy_to_branch(
 
 
 ## Configure git with Rstudio
-```{r}
+```r
 ## set your user name and email:
 usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")
 
