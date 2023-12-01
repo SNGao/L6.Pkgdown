@@ -1,0 +1,8 @@
+build-last-errors="[]"
+build-last-errors-base-dir="~/Desktop/L6.Pkgdown/"
+build-last-outputs="[{\"type\":0,\"output\":\"==> R CMD INSTALL --preclean --no-multiarch --with-keep.source L6.Pkgdown\\n\\n\"},{\"type\":1,\"output\":\"* installing to library ‘/Users/gsn/Library/R/x86_64/4.1/library’\\n\"},{\"type\":1,\"output\":\"* installing *source* package ‘L6.Pkgdown’ ...\\n\"},{\"type\":1,\"output\":\"** using staged installation\\n\"},{\"type\":1,\"output\":\"\"},{\"type\":1,\"output\":\"No man pages found in package  ‘L6.Pkgdown’ \\n\"},{\"type\":1,\"output\":\"\"},{\"type\":1,\"output\":\"** help\\n\"},{\"type\":1,\"output\":\"*** installing help indices\\n\"},{\"type\":1,\"output\":\"** building package indices\\n\"},{\"type\":1,\"output\":\"\"},{\"type\":1,\"output\":\"** testing if installed package can be loaded from temporary location\\n\"},{\"type\":1,\"output\":\"\"},{\"type\":1,\"output\":\"** testing if installed package can be loaded from final location\\n\"},{\"type\":1,\"output\":\"\"},{\"type\":1,\"output\":\"** testing if installed package keeps a record of temporary installation path\\n\"},{\"type\":1,\"output\":\"* DONE (L6.Pkgdown)\\n\"},{\"type\":1,\"output\":\"\"}]"
+compile_pdf_state="{\"tab_visible\":false,\"running\":false,\"target_file\":\"\",\"output\":\"\",\"errors\":[]}"
+files.monitored-path=""
+find-in-files-state="{\"handle\":\"\",\"input\":\"\",\"path\":\"\",\"regex\":false,\"ignoreCase\":false,\"results\":{\"file\":[],\"line\":[],\"lineValue\":[],\"matchOn\":[],\"matchOff\":[],\"replaceMatchOn\":[],\"replaceMatchOff\":[]},\"running\":false,\"replace\":false,\"preview\":false,\"gitFlag\":false,\"replacePattern\":\"\"}"
+imageDirtyState="1"
+saveActionState="0"
