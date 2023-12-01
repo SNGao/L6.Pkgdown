@@ -43,10 +43,14 @@ usethis::use_github() # check if connect to repo already
 usethis::use_pkgdown_github_pages()
 ```
 
-(1)自动生成 docs/ 目录：use_pkgdown_github_pages() 将创建一个名为 docs/ 的目录，其中包含构建文档网页所需的所有文件。
-(2)修改 .gitignore 文件：函数会更新 .gitignore 文件，以确保 docs/ 目录中的文件不会被 Git跟踪（.gitignore文件是网页信息的存放处，自动更新需要commit文件）。
-(3)修改 .gitattributes 文件：函数还会更新 .gitattributes 文件，以确保在 Git 中正确处理二进制文件。
-(4)在项目根目录创建 .nojekyll 文件：这个文件的存在告诉 GitHub Pages 不要执行 Jekyll 构建过程，因为 R 包的文档通常是用 pkgdown 构建的，而不是 Jekyll。
+(1)自动生成 docs/ 目录：use_pkgdown_github_pages() 将创建一个名为 docs/ 的目录，其中包含构建文档网页所需的所有文件。\ 
+
+(2)修改 .gitignore 文件：函数会更新 .gitignore 文件，以确保 docs/ 目录中的文件不会被 Git跟踪（.gitignore文件是网页信息的存放处，自动更新需要commit文件）。\ 
+
+(3)修改 .gitattributes 文件：函数还会更新 .gitattributes 文件，以确保在 Git 中正确处理二进制文件。\ 
+
+(4)在项目根目录创建 .nojekyll 文件：这个文件的存在告诉 GitHub Pages 不要执行 Jekyll 构建过程，因为 R 包的文档通常是用 pkgdown 构建的，而不是 Jekyll。\ 
+
 (5)将 gh-pages 分支推送到远程仓库：函数会创建一个名为 gh-pages的分支，并将生成的文档网页推送到 GitHub 上。
 
 # Install
@@ -94,7 +98,8 @@ usethis::edit_r_environ()
 ```
 
 # Some references
-Configure git with Rstudio: https://gist.github.com/Z3tt/3dab3535007acf108391649766409421
+Configure git with Rstudio: https://gist.github.com/Z3tt/3dab3535007acf108391649766409421 \ 
+
 Git Guides: https://happygitwithr.com/https-pat
 
 
