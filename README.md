@@ -69,6 +69,15 @@ usethis::use_github_action("pkgdown")
 ```
 Sets up continuous integration (CI) for an R package that is developed on GitHub using GitHub Actions. CI can be used to trigger various operations for each push or pull request, e.g. running R CMD check or building and deploying a pkgdown site.
 
+# If automatically update fail, use code to manually update the website
+```r
+usethis::use_pkgdown_github_pages()
+pkgdown::deploy_to_branch()
+
+```
+
+
+
 # How to use build website automatically
 ```r
 ## Commit files in the master and gh-page branch to the github 
